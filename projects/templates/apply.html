@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>집 찾기?</title>
+    <link rel="stylesheet"  href="{{url_for('static', filename='styles.css')}}" />
+</head>
+
+<body>
+    <article id="3af545b5-07b8-4850-af19-b4184d9fa133" class="page sans">
+        <header>
+            <h1 class="page-title">집 등록하기</h1>
+        </header>
+        <div class="page-body">
+            <p id="ff2fae6b-2348-412e-a232-2ff97a0fc69a" class="">
+                <form action="/applyphoto" method="get">
+                    <input type="text" placeholder="위치를 입력하세요." required name="location">
+                    <input type="checkbox" name="clean" value="clean">
+                    <textarea name="built" placeholder="빌트인 항목" cols="45" rows="4" required></textarea>
+                    <button>사진 이어서 입력하기</button>
+                </form>
+            </p>
+        </div>
+    </article>
+</body>
+
+</html>
