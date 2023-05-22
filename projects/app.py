@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import sys
+import database
 
 app = Flask(__name__)
 
@@ -23,13 +24,26 @@ def photo_apply():
 @app.route('/upload_done', methods=["POST"])
 def upload_done():
     uploaded_files = request.files["file"]
-    uploaded_files.save('static/img/' + secure_filename(uploaded_files.filename))
+    uploaded_files.save(f'static/img/{(database.now_index())+1}.jpeg')
 
     return redirect(url_for('home'))
 
 @app.route('/list')
 def list():
-    return render_template('list.html')
+    house_list = database.load_list()
+    length = len(house_list)
+    return render_template('list.html', house_list = house_list, length = length)
+
+@app.route('/house_info/<int:index>/')
+def house_info(index):
+    house_info = database.load_house(index)
+    location = house_info["location"]
+    cleaness = house_info["cleaness"]
+    built_in = house_info["built_in"]
+
+    #photo = f'img/{index.jpeg}'
+
+    return render_template("house_info.html", location=location, cleaness=cleaness, built_in=built_in)
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)

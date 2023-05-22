@@ -9,12 +9,17 @@
 <body>
     <article id="3af545b5-07b8-4850-af19-b4184d9fa133" class="page sans">
         <header>
-            <h1 class="page-title">등록한 집 목록보기</h1>
+            <h1 class="page-title">등록한 집 세부내용</h1>
         </header>
         <div class="page-body">
             <p id="ff2fae6b-2348-412e-a232-2ff97a0fc69a" class="">
-                {% if length !=0 %}{% for house in house_list %}<a href={{url_for("house_info", index=house[0])}}>
-                <h2>{{house[1]}}</h2></a>{% endfor %}{% else %}<h2>집을 등록해 주세요.</h2>{% endif %}
+                집 위치 - {{ location }}
+            </p>
+            <p id="ff2fae6b-2348-412e-a232-2ff97a0fc69a" class="">
+                청결도 - {% if cleaness == True %}매우 청결 {% else %}청소 필요 {% endif %}
+            </p>
+            <p id="ff2fae6b-2348-412e-a232-2ff97a0fc69a" class="">
+                빌트인 항목 - {{ built_in }}
             </p>
         </div>
     </article>
