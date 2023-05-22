@@ -2,7 +2,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>집 찾기?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>집 찾기</title>
     <link rel="stylesheet"  href="{{url_for('static', filename='styles.css')}}" />
 </head>
 
@@ -13,8 +14,7 @@
         </header>
         <div class="page-body">
             <p id="ff2fae6b-2348-412e-a232-2ff97a0fc69a" class="">
-                {% if length !=0 %}{% for house in house_list %}<a href={{url_for("house_info", index=house[0])}}>
-                <h2>{{house[1]}}</h2></a>{% endfor %}{% else %}<h2>집을 등록해 주세요.</h2>{% endif %}
+                {% if length !=0 %}{% for house in house_list %}<a href={{url_for("house_info", index=house[0])}}><h2>{{house[1]}}</h2></a>{% endfor %}{% else %}<h2>집을 등록해 주세요.</h2>{% endif %}
             </p>
         </div>
     </article>

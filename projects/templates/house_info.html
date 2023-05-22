@@ -2,7 +2,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>집 찾기?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>집 찾기</title>
     <link rel="stylesheet"  href="{{url_for('static', filename='styles.css')}}" />
 </head>
 
@@ -21,6 +22,9 @@
             <p id="ff2fae6b-2348-412e-a232-2ff97a0fc69a" class="">
                 빌트인 항목 - {{ built_in }}
             </p>
+            <div>
+                <img src = {{url_for("static", filename = photo)}}>
+            </div>
         </div>
     </article>
 </body>
